@@ -231,11 +231,29 @@
     function handleEnter() {
         this.classList.add('trigger-enter');
         setTimeout(() => this.classList.add('trigger-enter-active'), 150);
+        background.classList.add('open');
+
+        // finds the position of the nav on the page
+        const dropdown = this.querySelector('.dropdown');
+        const dropdownCoords = dropdown.getBoundingClientRect();
+        const navCoords = nav.getBoundingClientRect();
+        
+        // finding height and wisth of the dropdown
+        const coords = {
+            height: dropdownCoords.height,
+            width: dropdownCoords.width,
+        };
+
+    // Creates background box with different sizes
+    background.style.setProperty('width', `${coords.width}px`);
+    background.style.setProperty('height', `${coords.height}px`);
+
     }
 
     // trigger CSS to remove content on leave
     function handleLeave() {
         this.classList.remove('trigger-enter', 'trigger-enter-active');
+        background.classList.remove('open');
     }
 
     // Event Listeners for when mouse enters or leaves Nav elements
