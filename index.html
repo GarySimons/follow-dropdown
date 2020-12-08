@@ -227,6 +227,18 @@
     // get the Nav
     const nav = document.querySelector('.top');
 
+    function handleEnter() {
+        console.log('ENTER');
+    }
+
+    function handleLeave() {
+        console.log('LEAVE');
+    }
+
+    // Event Listeners for when mouse enters or leaves the cool list
+    triggers.forEach(trigger => trigger.addEventListener('mouseenter', handleEnter));
+    triggers.forEach(trigger => trigger.addEventListener('mouseleave', handleLeave));
+
 </script>
 
 </body>
