@@ -227,15 +227,18 @@
     // get the Nav
     const nav = document.querySelector('.top');
 
+    // trigger CSS to show content on enter
     function handleEnter() {
-        console.log('ENTER');
+        this.classList.add('trigger-enter');
+        setTimeout(() => this.classList.add('trigger-enter-active'), 150);
     }
 
+    // trigger CSS to remove content on leave
     function handleLeave() {
-        console.log('LEAVE');
+        this.classList.remove('trigger-enter', 'trigger-enter-active');
     }
 
-    // Event Listeners for when mouse enters or leaves the cool list
+    // Event Listeners for when mouse enters or leaves Nav elements
     triggers.forEach(trigger => trigger.addEventListener('mouseenter', handleEnter));
     triggers.forEach(trigger => trigger.addEventListener('mouseleave', handleLeave));
 
